@@ -1,8 +1,8 @@
-import React from "react"
-import { Draggable } from "react-beautiful-dnd"
+import React from "react";
+import { Draggable } from "react-beautiful-dnd";
 
 const StudentDraggable = props => {
-  const { student } = props
+  const { student } = props;
 
   return (
     <Draggable draggableId={student.id} index={props.index}>
@@ -17,7 +17,7 @@ const StudentDraggable = props => {
         </div>
       )}
     </Draggable>
-  )
-}
+  );
+};
 
-export default StudentDraggable
+export default StudentDraggable;
