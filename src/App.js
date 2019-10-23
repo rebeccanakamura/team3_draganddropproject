@@ -81,6 +81,7 @@ const App = () => {
                 <div className="button-names-wrapper">
                   <input
                     type="text"
+                    className="input"
                     placeholder="Enter Student Name"
                     value={student}
                     onChange={e => setStudent(e.target.value)}

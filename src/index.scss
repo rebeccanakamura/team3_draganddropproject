@@ -1,66 +1,135 @@
 body {
   margin: 0;
-}
-
-.app {
+  }
+  
+  .app {
   display: grid;
   grid-template-columns: 1fr 4fr;
-
+  
   .left-student-list {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: 30px;
-    display: flex;
-    justify-content: flex-start;
-
-    .random-btn {
-      width: 100%;
-      padding: 15px;
-      background-color: #00cb78;
-      color: black;
-    }
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
   }
-
-  // .separator-skew {
-  //   height: 100vh;
-  //   border-right: 1px solid black;
-  //   transform: skew(10deg);
-  // }
-
+  
   .teams-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
-    gap: 60px;
-    padding: 50px;
-    justify-content: space-around;
-
-    .team-list {
-      border: 1px solid black;
-      height: minmax(250px);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-
-      .team-title {
-        height: 25px;
-        width: 100%;
-        padding: 20px 0;
-        margin-bottom: 50px;
-        text-align: center;
-        background-color: #00cb78;
-        // transform: skewY(10deg);
-        color: white;
-        font-size: 1.5rem;
-        text-align: center;
-        justify-content: center;
-      }
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 60px;
+  padding: 50px;
+  justify-content: space-around;
+  
+  .team-list {
+  border: 1px solid black;
+  // height: minmax(250px);
+  background-color: #9b9b9b;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 10px 5px 5px #454545;
+  border-radius: 10px;
+  
+  .team-title {
+  
+  align-items: center;
+  height: 25%;
+  width: 90%;
+  padding: 10px;
+  margin-left: 2.5px;
+  margin-top: 15px;
+  margin-bottom: 50px;
+  text-align: center;
+  background-color: #00cb78;
+  transform: skewY(5deg);
+  // box-shadow: 5px 5px 5px grey;
+  background-image: linear-gradient(to left, #00cb78, #09965b, green);
+  
+  
   }
-
+  }
+  }
+  
   .student-draggable {
-    border: 1px solid black;
-    margin: 10px;
-    background-color: white;
+  border: 1px solid #454545;
+  border-radius: 3px;
+  margin: 10px;
+  background-color: #00cb78;
+  color: white;
+  
+  .student-name{
+  display: flex;
+  justify-content: center
   }
-}
+  }
+  }
+  
+  .enter-name-wrapper{
+  width: 275px;
+  height: 25px;
+  margin-bottom: 15px;
+  color: #454545;
+  }
+  
+  .btns-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  
+  button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 35px;
+  width: 105px;
+  transition: 0.5s ease-in-out;
+  color: #09965b;
+  font-weight: bold;
+  
+  &:hover{
+  cursor: pointer;
+  background-color: #00cb78;
+  letter-spacing: 1px;
+  animation: pulse 1s infinite;
+  font-weight: bold;
+  color: white;
+  }
+  
+  @keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1)};
+  100% { transform: scale(1); }
+  }
+  
+  }
+   
+  
+  .name-button-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  }
+  
+  .input{
+  width: 20vw;
+  height: 10vh;
+  margin-bottom: 15px;
+  align-items: center;
+  color: #09965b;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 0%;
+  border: 0%
+  }
+  
+  ::placeholder{
+  color: #09965b;
+  font-weight: bold;
+  font-size: 13px;
+  }
+  
+  
