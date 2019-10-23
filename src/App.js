@@ -67,10 +67,12 @@ const App = () => {
   };
 
   return (
+
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="app">
         <Droppable droppableId={"0"}>
           {provided => (
+ 
             <div
               className="left-student-list"
               ref={provided.innerRef}
@@ -81,15 +83,18 @@ const App = () => {
                 <div className="button-names-wrapper">
                   <input
                     type="text"
+                    className="input"
                     placeholder="Enter Student Name"
                     value={student}
                     onChange={e => setStudent(e.target.value)}
                   />
                 </div>
-                <button>Add Student</button>
               </form>
+              <div className="simplebuttons">
+                <button>Add Student</button>
               <div>
                 <button onClick={handleRandom}>Random</button>
+              </div>
               </div>
 
               {renderStudents()}
