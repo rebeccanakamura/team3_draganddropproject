@@ -30,12 +30,16 @@ body {
   justify-content: space-around;
   
   .team-list {
-  border: 1px solid black;
+  border: 1px solid #454545;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  // box-shadow: 5px 5px 10px #454545;
-  box-shadow: 0 20px 50px #00cb78;
+  // box-shadow: 0 20px 50px #00cb78;
+  box-shadow: 5px 5px rgba(0, 98, 90, 0.4),
+  10px 10px rgba(0, 98, 90, 0.3),
+  15px 15px rgba(0, 98, 90, 0.2),
+  20px 20px #454545,
+  25px 25px rgba(0, 98, 90, 0.05);
   border-radius: 10px;
   
   .team-title {
@@ -47,7 +51,35 @@ body {
   text-align: center;
   color: #454545;
   background-color: #00cb78;
-  background-image: linear-gradient(to left, #00cb78, #09965b, green);
+  background: linear-gradient(124deg, #e3e81d, #1de840, #454545, #1de840, #e3e81d);
+background-size: 1800% 1800%;
+
+-webkit-animation: rainbow 18s ease infinite;
+-z-animation: rainbow 18s ease infinite;
+-o-animation: rainbow 18s ease infinite;
+  animation: rainbow 18s ease infinite;}
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+
   
   
   }
@@ -66,7 +98,7 @@ body {
   justify-content: center
   }
   }
-  }
+  
   
   .enter-name-wrapper{
   width: 275px;
