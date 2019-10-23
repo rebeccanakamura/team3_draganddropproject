@@ -4,17 +4,12 @@ import StudentDraggable from "./StudentDraggable";
 
 const Random = props => {
   const handleRandom = () => {
-    return props.students.map(student => {
-      const randomTeam = Math.floor(Math.random(student.team) * 3) + 1;
-      console.log(randomTeam);
-      // return console.log(
-      //   <StudentDraggable
-      //     key={student.id}
-      //     student={student}
-      //     team={randomTeam}
-      //   />
-      // );
-    });
+    const randomTeam = Math.floor(Math.random() * 3) + 1;
+    console.log(props.setStudents({ team: randomTeam }));
+
+    // return console.log(
+    //   <StudentDraggable key={student.id} student={student} />
+    // );
   };
 
   return (

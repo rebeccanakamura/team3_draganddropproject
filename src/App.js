@@ -5,11 +5,41 @@ import StudentDraggable from "./components/StudentDraggable";
 
 import mockData from "./mockData";
 import TeamList from "./components/TeamList";
-import Random from "./components/random";
 
 const App = () => {
   const [student, setStudent] = React.useState("");
   const [students, setStudents] = React.useState(mockData);
+
+  const shuffleStudents = arr => {
+    let currentIndex = arr.length,
+      temporaryValue,
+      randomIndex;
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = arr[currentIndex];
+      arr[currentIndex] = arr[randomIndex];
+      arr[randomIndex] = temporaryValue;
+    }
+    return arr;
+  };
+
+  const handleRandom = () => {
+    let shuffledteam = shuffleStudents(students);
+    let newArray = [];
+    let teams = 3;
+    let counter = 1;
+    shuffledteam.map(student => {
+      student.team = counter;
+      newArray.push(student);
+      if (counter == teams) {
+        counter = 1;
+      } else {
+        counter += 1;
+      }
+    });
+    setStudents(newArray);
+  };
 
   const renderStudents = () => {
     const noTeam = students.filter(student => student.team === 0);
@@ -56,9 +86,11 @@ const App = () => {
                     onChange={e => setStudent(e.target.value)}
                   />
                 </div>
+                <button>Add Student</button>
               </form>
-              <button>Add Student</button>
-              <Random students={students} />
+              <div>
+                <button onClick={handleRandom}>Random</button>
+              </div>
 
               {renderStudents()}
             </div>
