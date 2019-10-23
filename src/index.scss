@@ -35,11 +35,6 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   box-shadow: 0 20px 50px #454545;
-  // box-shadow: 5px 5px rgba(0, 98, 90, 0.4),
-  // 10px 10px rgba(0, 98, 90, 0.3),
-  // 15px 15px rgba(0, 98, 90, 0.2),
-  // 20px 20px #454545,
-  // 25px 25px rgba(0, 98, 90, 0.05);
   border-radius: 10px;
   
   .team-title {
@@ -50,6 +45,8 @@ body {
   margin-bottom: 50px;
   text-align: center;
   color: #454545;
+  font-weight: bold;
+  font-size: 28px;
   background-color: #00cb78;
   background: linear-gradient(124deg, #1de840, #e3e81d, #1de840, #454545, #1de840, #e3e81d);
 background-size: 1800% 1800%;
