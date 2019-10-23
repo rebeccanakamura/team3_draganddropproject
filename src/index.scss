@@ -151,13 +151,14 @@ background-size: 1800% 1800%;
   .input{
   width: 20vw;
   height: 10vh;
-  margin-bottom: 15px;
+  margin-bottom: 35px;
   align-items: center;
   color: #09965b;
   font-weight: bold;
   font-size: 13px;
   padding: 0%;
-  border: 0%
+  border: 0%;
+  box-shadow: 0 10px 20px #a09e9e;
   }
   
   ::placeholder{
@@ -168,6 +169,8 @@ background-size: 1800% 1800%;
   }
   
 .simplebuttons {
+  margin-top: 5px;
+  margin-bottom:10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between
