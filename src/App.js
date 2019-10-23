@@ -67,10 +67,12 @@ const App = () => {
   };
 
   return (
+
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="app">
         <Droppable droppableId={"0"}>
           {provided => (
+ 
             <div
               className="left-student-list"
               ref={provided.innerRef}
