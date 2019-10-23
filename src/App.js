@@ -1,14 +1,29 @@
 import React from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { useEffect } from "react";
 
 import StudentDraggable from "./components/StudentDraggable";
 
-import mockData from "./mockData";
+// import mockData from "./mockData";
 import TeamList from "./components/TeamList";
 
 const App = () => {
   const [student, setStudent] = React.useState("");
-  const [students, setStudents] = React.useState(mockData);
+  const [students, setStudents] = React.useState([]);
+
+useEffect(() => { 
+    fetch(
+      `https://dragdropteem.herokuapp.com/students`
+    )
+    .then(response => response.json())
+    .then(results => {
+      setStudents (
+        results
+      )
+      
+  })
+},[])
+
 
   const shuffleStudents = arr => {
     let currentIndex = arr.length,
@@ -42,6 +57,7 @@ const App = () => {
   };
 
   const renderStudents = () => {
+    console.log(students)
     const noTeam = students.filter(student => student.team === 0);
     return noTeam.map((student, index) => {
       return (
@@ -102,11 +118,16 @@ const App = () => {
           )}
         </Droppable>
 
-        <div className="teams-wrapper">
+        
+        {students.length>0 ?
+          <div className="teams-wrapper">
           <TeamList students={students} number={"1"} />
           <TeamList students={students} number={"2"} />
           <TeamList students={students} number={"3"} />
         </div>
+          :
+          null
+        }
       </div>
     </DragDropContext>
   );
