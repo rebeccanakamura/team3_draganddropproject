@@ -11,19 +11,13 @@ const App = () => {
   const [student, setStudent] = React.useState("");
   const [students, setStudents] = React.useState([]);
 
-useEffect(() => { 
-    fetch(
-      `https://dragdropteem.herokuapp.com/students`
-    )
-    .then(response => response.json())
-    .then(results => {
-      setStudents (
-        results
-      )
-      
-  })
-},[])
-
+  useEffect(() => {
+    fetch(`https://dragdropteem.herokuapp.com/students`)
+      .then(response => response.json())
+      .then(results => {
+        setStudents(results);
+      });
+  }, []);
 
   const shuffleStudents = arr => {
     let currentIndex = arr.length,
@@ -57,7 +51,6 @@ useEffect(() => {
   };
 
   const renderStudents = () => {
-    console.log(students)
     const noTeam = students.filter(student => student.team === 0);
     return noTeam.map((student, index) => {
       return (
@@ -68,7 +61,11 @@ useEffect(() => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    setStudents([...students, { id: students.length, name: student, team: 0 }]);
+    setStudents([
+      ...students,
+      { id: students.length + 1, name: student, team: 0 }
+    ]);
+    setStudent("");
   };
 
   const onDragEnd = result => {
@@ -83,12 +80,10 @@ useEffect(() => {
   };
 
   return (
-
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="app">
         <Droppable droppableId={"0"}>
           {provided => (
- 
             <div
               className="left-student-list"
               ref={provided.innerRef}
@@ -100,17 +95,17 @@ useEffect(() => {
                   <input
                     type="text"
                     className="input"
-                    placeholder="                  Enter Student Name"
+                    placeholder="Enter Student Name"
                     value={student}
                     onChange={e => setStudent(e.target.value)}
                   />
                 </div>
+                <button>Add Student</button>
               </form>
               <div className="simplebuttons">
-                <button>Add Student</button>
-              <div>
-                <button onClick={handleRandom}>Random</button>
-              </div>
+                <div>
+                  <button onClick={handleRandom}>Random</button>
+                </div>
               </div>
 
               {renderStudents()}
@@ -118,16 +113,13 @@ useEffect(() => {
           )}
         </Droppable>
 
-        
-        {students.length>0 ?
+        {students.length > 0 ? (
           <div className="teams-wrapper">
-          <TeamList students={students} number={"1"} />
-          <TeamList students={students} number={"2"} />
-          <TeamList students={students} number={"3"} />
-        </div>
-          :
-          null
-        }
+            <TeamList students={students} number={"1"} />
+            <TeamList students={students} number={"2"} />
+            <TeamList students={students} number={"3"} />
+          </div>
+        ) : null}
       </div>
     </DragDropContext>
   );
