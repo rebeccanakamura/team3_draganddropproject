@@ -100,7 +100,7 @@ useEffect(() => {
                   <input
                     type="text"
                     className="input"
-                    placeholder="                  Enter Student Name"
+                    placeholder="                   Enter Student Name"
                     value={student}
                     onChange={e => setStudent(e.target.value)}
                   />
