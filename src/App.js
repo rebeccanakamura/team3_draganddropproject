@@ -1,14 +1,17 @@
 import React from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { useEffect } from "react";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import StudentDraggable from "./components/StudentDraggable";
 import axios from "axios";
+import { library } from "@fortawesome/fontawesome-svg-core";
 
 // import mockData from "./mockData";
 import TeamList from "./components/TeamList";
 
 const App = () => {
+  library.add(faTrash);
   const [student, setStudent] = React.useState("");
   const [students, setStudents] = React.useState([]);
 
@@ -52,7 +55,7 @@ const App = () => {
   };
 
   const renderStudents = () => {
-    const noTeam = students.filter(student => student.team === 0);
+    const noTeam = students.filter(student => student.team === "0");
     return noTeam.map((student, index) => {
       return (
         <StudentDraggable key={student.id} student={student} index={index} />
@@ -66,7 +69,7 @@ const App = () => {
     axios
       .post("https://dragdropteem.herokuapp.com/student", {
         name: student,
-        team: 1
+        team: "0"
       })
       .then(response => console.log(response))
       .catch(err => console.log("Error", err));
@@ -91,7 +94,7 @@ const App = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="app">
-        <Droppable droppableId={"0"} number={""}>
+        <Droppable droppableId={"0"}>
           {provided => (
             <div
               className="left-student-list"
