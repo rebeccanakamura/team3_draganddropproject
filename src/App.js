@@ -3,6 +3,7 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { useEffect } from "react";
 
 import StudentDraggable from "./components/StudentDraggable";
+import axios from "axios";
 
 // import mockData from "./mockData";
 import TeamList from "./components/TeamList";
@@ -61,6 +62,14 @@ const App = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    axios
+      .post("https://dragdropteem.herokuapp.com/student", {
+        name: student,
+        team: 1
+      })
+      .then(response => console.log(response))
+      .catch(err => console.log("Error", err));
     setStudents([
       ...students,
       { id: students.length + 1, name: student, team: 0 }
@@ -82,7 +91,7 @@ const App = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="app">
-        <Droppable droppableId={"0"}>
+        <Droppable droppableId={"0"} number={""}>
           {provided => (
             <div
               className="left-student-list"
